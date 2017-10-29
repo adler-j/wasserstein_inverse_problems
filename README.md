@@ -15,16 +15,17 @@ The pre-trained networks are currently under finalization and will be released s
 
 Dependencies
 ------------
-The code is currently based on the latest version of [ODL](https://github.com/odlgroup/odl). It can be most easily installed by running 
+The code is currently based on the latest version of [ODL](https://github.com/odlgroup/odl) and the utility library [adler](https://github.com/adler-j/adler). They can be most easily installed by running 
 
 ```bash
 $ pip install https://github.com/odlgroup/odl/archive/master.zip
+$ pip install https://github.com/adler-j/adler/archive/master.zip
 ```
 
-The code also requires the utility library [adler](https://github.com/adler-j/adler) which can be installed via
+The learning requires tensorflow, and the ray-transform needs [ASTRA](https://github.com/astra-toolbox/astra-toolbox) for computational feasibility
 
 ```bash
-$ pip install https://github.com/adler-j/adler/archive/master.zip
+$ conda install -c astra-toolbox astra-toolbox
 ```
 
 Authors
