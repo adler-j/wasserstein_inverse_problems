@@ -11,7 +11,7 @@ The code contains the following
 
 Pre-trained networks
 --------------------
-The pre-trained networks are currently under finalization and will be released soon.
+The pre-trained networks are currently under finalization and will be released soon, in the meantime, training is just a few hours.
 
 Dependencies
 ------------
@@ -27,23 +27,22 @@ The code also requires the utility library [adler](https://github.com/adler-j/ad
 $ pip install https://github.com/adler-j/adler/archive/master.zip
 ```
 
-Contact
+Authors
 -------
 [Jonas Adler](https://www.kth.se/profile/jonasadl), PhD student  
 KTH, Royal Institute of Technology  
-Elekta Instrument AB  
+Elekta  
 jonasadl@kth.se
 
 [Axel Ringh](https://www.kth.se/profile/aringh), PhD student  
 KTH, Royal Institute of Technology  
-Elekta Instrument AB  
 aringh@kth.se
 
 [Ozan Öktem](https://www.kth.se/profile/ozan), Associate Professor  
 KTH, Royal Institute of Technology  
 ozan@kth.se
 
-[Johan Karlsson](https://people.kth.se/~johan79/), Associate Professor
+[Johan Karlsson](https://people.kth.se/~johan79/), Associate Professor  
 KTH, Royal Institute of Technology  
 johan.karlsson@math.kth.se
 
