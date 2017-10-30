@@ -104,10 +104,9 @@ with tf.name_scope('loss'):
     loss_l2 = tf.reduce_mean(squared_error)
 
     x_result_pos = tf.nn.relu(x_result)
-    epsilon = 1e-3
     x_corr = x_result_pos * tf.reduce_mean(x_true) / (tf.reduce_mean(x_result_pos) + 1e-5)
     wd = wasserstein_distance(x_true[..., 0] + 1e-3, x_corr[..., 0] + 1e-3,
-                              epsilon=epsilon, niter=10, cutoff=0.3, p=4)
+                              epsilon=1e-3, niter=10, cutoff=0.3, p=4)
 
     loss_sum = (tf.reduce_mean(x_true) - tf.reduce_mean(x_result)) ** 2
     loss_wasserstein = tf.reduce_mean(wd)

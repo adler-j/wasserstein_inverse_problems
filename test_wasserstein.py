@@ -30,13 +30,12 @@ x1 = tf.placeholder('float32', [size, size])
 wd = wasserstein_distance(x0[None, ...] + 1e-3, x1[None, ...] + 1e-3,
                           epsilon=epsilon, niter=10, cutoff=cutoff, p=p)
 
-dy = 0.1
-x0_arr = odl.phantom.cuboid(space, [-0.02, -dy], [0.02, dy]).asarray() * 500
+x0_arr = odl.phantom.cuboid(space, [-0.02, -0.1], [0.02, 0.1]).asarray() * 1000
 
 offsets = np.linspace(-1.0, 1.0, 101)
 y = []
 for dx in offsets:
-    x1_arr = odl.phantom.cuboid(space, [-0.02 + dx, -dy], [0.02 + dx, dy]).asarray()
+    x1_arr = odl.phantom.cuboid(space, [-0.02 + dx, -0.1], [0.02 + dx, 0.1]).asarray()
     x1_arr *= np.sum(x0_arr) / np.sum(x1_arr)
 
     result_dx = wd.eval(feed_dict={x0: x0_arr, x1: x1_arr})
@@ -44,7 +43,7 @@ for dx in offsets:
 
     y.append(result_dx)
 
-plt.plot(offsets, y - np.min(y),
+plt.plot(offsets, y,
          label='computed')
 plt.plot(offsets, np.mean(x0_arr) * (1 - np.exp(- offsets ** p / cutoff ** p)),
          label='expected')

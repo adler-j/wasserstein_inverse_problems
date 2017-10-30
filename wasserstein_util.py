@@ -65,9 +65,24 @@ def wasserstein_distance(mu0, mu1, epsilon, niter, cutoff, p=2):
 
         c(x1, x2) = (1 - exp((||x1-x2||/cutoff)^p)
 
-    This behaves like ||x1-x2||^p close to 0, but goes to 1 for ||x1-x2||>cutoff.
+    This behaves like ||x1-x2||^p close to 0, but goes to 1 for
+    ||x1-x2||>cutoff.
+
+    Parameters
+    ----------
+    mu0, mu1 : `tensorflow.Tensor` with shape (batchn, nx, ny)
+        The images we want to compute the difference between.
+    epsilon : positive `float`
+        Entropy regularization term.
+    niter : positive `int`
+        Number of sinkhorn iterations.
+    cutoff : positive `float`
+        Cutoff parameter for the p-norm, used for numerical stability.
+    p : positive `float`
+        Power of the p-norm
     """
     with tf.name_scope('wasserstein_distance'):
+        # Perform all computations using float32
         mu0 = tf.cast(mu0, 'float32')
         mu1 = tf.cast(mu1, 'float32')
 
